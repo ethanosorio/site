@@ -5,6 +5,8 @@ export default defineConfig({
   base: '/site/',
   build: {
     chunkSizeWarningLimit: 1600,
+    outDir: 'dist'
   },
-  assetsInclude: ['**/*.gltf']
+  assetsInclude: ['**/*.gltf'],
+  publicDir: 'assets'
 })
