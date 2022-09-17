@@ -60,7 +60,7 @@ function init() {
   //loader
   const gltfLoader = new GLTFLoader();
   // gltfLoader.load('assets/donny/scene.gltf', (gltfScene) => {
-  gltfLoader.load('shiba.glb', (gltfScene) => {
+  gltfLoader.load('donny.glb', (gltfScene) => {
     const model = gltfScene.scene;
     model.traverse(function(node){
       if(node.isMesh){
@@ -69,7 +69,7 @@ function init() {
       }
     });
     model.position.set(0,0,-2);
-    // model.scale.set(0.05,0.05,0.05);
+    model.scale.set(0.05,0.05,0.05);
     scene.add(model);
   });
 
