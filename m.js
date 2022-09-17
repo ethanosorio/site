@@ -43,7 +43,7 @@ function init() {
   scene.add(mesh)
 
   //light
-  var sunlight = new THREE.PointLight( 0xffffff, 1, 0, 0);  
+  var sunlight = new THREE.PointLight( 0xffff00, 1, 0, 0);  
   sunlight.position.set(25,25,25)
   sunlight.castShadow = true;
   sunlight.shadow.mapSize.width = 2048;
