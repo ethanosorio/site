@@ -59,7 +59,8 @@ function init() {
 
   //loader
   const gltfLoader = new GLTFLoader();
-  gltfLoader.load('assets/shiba/scene.gltf', (gltfScene) => {
+  // gltfLoader.load('assets/donny/scene.gltf', (gltfScene) => {
+  gltfLoader.load('shiba.glb', (gltfScene) => {
     const model = gltfScene.scene;
     model.traverse(function(node){
       if(node.isMesh){
