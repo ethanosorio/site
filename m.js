@@ -43,7 +43,7 @@ function init() {
   scene.add(mesh)
 
   //light
-  var sunlight = new THREE.PointLight( 0xffff00, 1, 0, 0);  
+  var sunlight = new THREE.PointLight( 0xffffff, 1, 0, 0);  
   sunlight.position.set(25,25,25)
   sunlight.castShadow = true;
   sunlight.shadow.mapSize.width = 2048;
@@ -59,7 +59,7 @@ function init() {
 
   //loader
   const gltfLoader = new GLTFLoader();
-  gltfLoader.load('assets/donny/scene.gltf', (gltfScene) => {
+  gltfLoader.load('assets/shiba/scene.gltf', (gltfScene) => {
     const model = gltfScene.scene;
     model.traverse(function(node){
       if(node.isMesh){
@@ -68,7 +68,7 @@ function init() {
       }
     });
     model.position.set(0,0,-2);
-    model.scale.set(0.05,0.05,0.05);
+    // model.scale.set(0.05,0.05,0.05);
     scene.add(model);
   });
 
