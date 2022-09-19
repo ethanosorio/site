@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+  --dark-navy: #020914;
+  --dark-navy-transparent: rgba(2, 9, 20, 0.8);
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+}
+
+html{
+    background: var(--dark-navy);
+    scroll-behavior: smooth;
+}
+
+body {
+  --nav-height: 75px;
+  padding-top: var(--nav-height);
+}
+
+canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+  width: 100%;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0px 3vw;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background: var(--dark-navy-transparent);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+  z-index: 1;
+  color: #ffeded;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  /* border-bottom: double rgba(200, 200, 200, 0.1); */
+}
+.nav--hidden{
+  transform: translateY(calc(-1 * var(--nav-height)));
+  box-shadow: none;
+}
+.navlink{
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 1em;
+  font-weight: bold;
+}
+
+.section{
+  display: block;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Cabin', sans-serif;
+  /* color: #ffeded; */
+  color: var(--slate);
+  text-transform: uppercase;
+  font-size: 5vmin;
+  padding: 0 10%;
+  will-change: transform;
+}
+.section h2{
+  padding-top: 10%;
+  color: var(--light-slate)
+}
+.section div{
+  display: block;
+  font-size: 3vmin;
+}
+
+.footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.links ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  align-items: center; 
+  z-index: 1;
+}
+.links li{margin: 10px;}
+.links li a{
+  color: white;
+  font-size: 40px;
+  transition: all ease-in-out 250ms;
+}
+.links li i{transition: all ease-in-out 250ms;}
+.links li i:hover{color: #cecdcd; transform: scale(1.5);}
