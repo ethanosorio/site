@@ -46,7 +46,7 @@ canvas{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s;
   z-index: 1;
-  color: #ffeded;
+  color: var(--light-slate);
   text-transform: uppercase;
   backdrop-filter: blur(6px);
   /* border-bottom: double rgba(200, 200, 200, 0.1); */
@@ -56,11 +56,11 @@ canvas{
   box-shadow: none;
 }
 .navlink{
-  color: #ffffff;
+  color: var(--light-slate);
   text-decoration: none;
   margin: 0 1em;
   font-weight: bold;
-}
+}:hover{color: var(--slate);}
 
 .section{
   display: block;
@@ -68,18 +68,22 @@ canvas{
   height: 100vh;
   position: relative;
   font-family: 'Cabin', sans-serif;
-  /* color: #ffeded; */
   color: var(--slate);
-  text-transform: uppercase;
   font-size: 5vmin;
   padding: 0 10%;
   will-change: transform;
 }
+#section0 .intro{
+  position: relative;
+  top: 20%;
+}
 .section h2{
   padding-top: 10%;
-  color: var(--light-slate)
+  color: var(--light-slate);
+  text-transform: uppercase;
 }
 .section div{
+  color: var(--lightest-slate);
   display: block;
   font-size: 3vmin;
 }
@@ -103,9 +107,9 @@ canvas{
 }
 .links li{margin: 10px;}
 .links li a{
-  color: white;
+  color: var(--lightest-slate);
   font-size: 40px;
   transition: all ease-in-out 250ms;
 }
 .links li i{transition: all ease-in-out 250ms;}
-.links li i:hover{color: #cecdcd; transform: scale(1.5);}
+.links li i:hover{color: var(--slate); transform: scale(1.5);}

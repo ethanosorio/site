@@ -5,6 +5,7 @@ import { AnimationMixer } from 'three';
 
 var renderer, scene, camera, cameraGroup, scrollY, sectionMeshes, astronaut, pivot, stars;
 const objectsDistance = 4
+const sections = 4
 const cursor = {}
 cursor.x = 0
 cursor.y = 0
@@ -40,7 +41,7 @@ function init() {
   scene.add( new THREE.AmbientLight( 0xffffff, 0.5 ) );
 
   //Object setup
-  addMeshes();
+  // addMeshes();
   addParticles();
   addObjects();
 
@@ -84,7 +85,7 @@ function addParticles(){
   for(let i = 0; i < particlesCount; i++)
   {
       positions[i * 3 + 0] = (Math.random() - 0.5) * 10
-      positions[i * 3 + 1] = objectsDistance * 0.5 - Math.random() * objectsDistance * sectionMeshes.length
+      positions[i * 3 + 1] = objectsDistance * 0.5 - Math.random() * objectsDistance * sections
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10
   }
   const particlesGeometry = new THREE.BufferGeometry()
@@ -100,7 +101,7 @@ function addParticles(){
     const star = new THREE.Mesh(geometry, materal);
     const [x,y,z] = [
       ((Math.random() - 0.5) * 10),
-      (objectsDistance * 0.5 - Math.random() * objectsDistance * sectionMeshes.length),
+      (objectsDistance * 0.5 - Math.random() * objectsDistance * sections),
       ((Math.random() - 0.5) * 10)
     ]
     star.position.set(x,y,z);
@@ -157,18 +158,19 @@ const tick = () =>
     previousTime = elapsedTime
 
     // Animate meshes
-    for(const mesh of sectionMeshes){
-        mesh.rotation.x += deltaTime * 0.1
-        mesh.rotation.y += deltaTime * 0.12
-    }
+    // for(const mesh of sectionMeshes){
+    //     mesh.rotation.x += deltaTime * 0.1
+    //     mesh.rotation.y += deltaTime * 0.12
+    // }
     if (astronaut){
       pivot.rotation.z += deltaTime * -0.5;
       pivot.rotation.x += deltaTime * -0.5;
     }
     stars.traverse(function(star){
       if(star.isMesh == true){
-        star.rotation.z += deltaTime * -0.005;
-        star.rotation.x += deltaTime * -0.005;
+        star.rotation.x += deltaTime * 1;
+        star.rotation.y += deltaTime * 0.75;
+        star.rotation.z += deltaTime * 0.5;
       }
     })
       
