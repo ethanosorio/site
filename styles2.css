@@ -19,7 +19,12 @@
 html{
     background: var(--dark-navy);
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
+::-webkit-scrollbar{width: 10px;}
+::-webkit-scrollbar-track{background: var(--dark-navy); }
+::-webkit-scrollbar-thumb{background: var(--navy); border-radius: 5px;}
+::-webkit-scrollbar-thumb:hover{background: var(--light-navy); }
 
 body {
   --nav-height: 75px;
@@ -49,7 +54,6 @@ canvas{
   color: var(--light-slate);
   text-transform: uppercase;
   backdrop-filter: blur(6px);
-  /* border-bottom: double rgba(200, 200, 200, 0.1); */
 }
 .nav--hidden{
   transform: translateY(calc(-1 * var(--nav-height)));
@@ -64,9 +68,7 @@ canvas{
 
 .section{
   display: block;
-  align-items: center;
   height: 100vh;
-  position: relative;
   font-family: 'Cabin', sans-serif;
   color: var(--slate);
   font-size: 5vmin;
@@ -82,10 +84,49 @@ canvas{
   color: var(--light-slate);
   text-transform: uppercase;
 }
-.section div{
+.section p{
   color: var(--lightest-slate);
-  display: block;
+  display: inline-block;
   font-size: 3vmin;
+  padding-top: 2vmin;
+}
+.section .smallDiv{
+  color: var(--lightest-slate);
+  display: inline-block;
+  font-size: 2vmin;
+  padding-top: 2vmin;
+}
+
+.hidden{
+  opacity: 0;
+  transition: 2s;
+}
+.visible{
+  opacity: 1;
+  transition: 2s;
+}
+
+.buttons{
+  /* display: inline-block; */
+}
+.buttonContainer{
+  padding: 10px;
+  justify-content: center;
+}
+.button{
+  text-decoration: none;
+  font-size: medium;
+  font-weight: 600;
+  background-color: transparent; 
+  color: var(--light-slate);
+  border: 3px solid var(--light-slate);
+  transition: all ease-in-out 250ms;
+  padding: 1vmin;
+  text-transform: uppercase;
+}
+.button:hover{
+  background-color: var(--light-slate);
+  color: var(--dark-navy);
 }
 
 .footer {
@@ -104,11 +145,12 @@ canvas{
   position: relative;
   align-items: center; 
   z-index: 1;
+  padding-bottom: 10%;
 }
-.links li{margin: 10px;}
+.links li{margin: 15px;}
 .links li a{
   color: var(--lightest-slate);
-  font-size: 40px;
+  font-size: 50px;
   transition: all ease-in-out 250ms;
 }
 .links li i{transition: all ease-in-out 250ms;}

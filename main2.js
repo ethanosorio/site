@@ -3,15 +3,14 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import { AnimationClip } from 'three';
 import { AnimationMixer } from 'three';
 
-var renderer, scene, camera, cameraGroup, scrollY, sectionMeshes, astronaut, pivot, stars;
+var renderer, scene, camera, cameraGroup, scrollY, astronaut, pivot, stars;
 const objectsDistance = 4
-const sections = 4
+const sections = 5
 const cursor = {}
 cursor.x = 0
 cursor.y = 0
 const clock = new THREE.Clock()
 let previousTime = 0
-let currentSection = 0
 
 
 init();
@@ -41,7 +40,6 @@ function init() {
   scene.add( new THREE.AmbientLight( 0xffffff, 0.5 ) );
 
   //Object setup
-  // addMeshes();
   addParticles();
   addObjects();
 
@@ -50,33 +48,6 @@ function init() {
   window.addEventListener('mousemove', onMouseMove, false );
   window.addEventListener('scroll', onScroll, false );
   scrollY = window.scrollY
-}
-
-function addMeshes(){
-  const material = new THREE.MeshNormalMaterial({color: 0xeeeeee});
-  const material2 = new THREE.PointsMaterial({color: 0xeeeeee, size: 0.005});
-  const mesh1 = new THREE.Points(new THREE.TorusGeometry(1, 0.4, 16, 60),material2)
-  const mesh2 = new THREE.Mesh(new THREE.ConeGeometry(1, 2, 32),material)
-  const mesh3 = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16),material)
-  const mesh4 = new THREE.Mesh(new THREE.IcosahedronGeometry(1),material)
-
-  mesh1.position.y = - objectsDistance * 0
-  mesh2.position.y = - objectsDistance * 1
-  mesh3.position.y = - objectsDistance * 2
-  mesh4.position.y = - objectsDistance * 3
-
-  mesh1.position.x = 2
-  mesh2.position.x = 2
-  mesh3.position.x = 2
-  mesh4.position.x = 2
-
-  mesh1.position.z = -2
-  mesh2.position.z = -2
-  mesh3.position.z = -2
-  mesh4.position.z = -2
-
-  sectionMeshes = [mesh1, mesh2, mesh3, mesh4]
-  scene.add(mesh1, mesh2, mesh3, mesh4)
 }
 
 function addParticles(){
@@ -139,11 +110,6 @@ function onWindowResize() {
 
 function onScroll(){
   scrollY = window.scrollY
-  const newSection = Math.round(scrollY / window.innerHeight)
-  if(newSection != currentSection)
-  {
-      currentSection = newSection
-  }
 }
 
 function onMouseMove( event ) {
@@ -157,11 +123,6 @@ const tick = () =>
     const deltaTime = elapsedTime - previousTime
     previousTime = elapsedTime
 
-    // Animate meshes
-    // for(const mesh of sectionMeshes){
-    //     mesh.rotation.x += deltaTime * 0.1
-    //     mesh.rotation.y += deltaTime * 0.12
-    // }
     if (astronaut){
       pivot.rotation.z += deltaTime * -0.5;
       pivot.rotation.x += deltaTime * -0.5;
@@ -173,9 +134,6 @@ const tick = () =>
         star.rotation.z += deltaTime * 0.5;
       }
     })
-      
-  
-
 
     // Animate camera
     camera.position.y = - scrollY / window.innerHeight * objectsDistance
