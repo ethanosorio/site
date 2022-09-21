@@ -106,8 +106,8 @@ canvas{
   transition: 2s;
 }
 
-.buttons{
-  /* display: inline-block; */
+.hyperlink{
+  color: var(--light-slate)
 }
 .buttonContainer{
   padding: 10px;
