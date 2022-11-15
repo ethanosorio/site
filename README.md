@@ -1,3 +1,2 @@
 # site
-A personal website about me
-[Site](https://ethanosorio.github.io/site/).
+A personal [website](https://ethanosorio.github.io/site/) about me.
